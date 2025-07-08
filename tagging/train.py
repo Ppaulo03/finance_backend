@@ -51,10 +51,7 @@ def treinar_modelo(df: pd.DataFrame, target: str, features: list, save_path: str
     logger.info(f"Modelo salvo em: {save_path}")
 
 
-if __name__ == "__main__":
-    caminho_csv = "extrato_final - extrato_final.csv"
-    df = carregar_dados(caminho_csv)
-
+def train_models(df: pd.DataFrame):
     features = ["Valor", "Sinal", "Hora", "DiaSemana", "Destino / Origem", "Descricao"]
     targets = ["Tipo", "Categoria", "Subcategoria", "Nome"]
 
@@ -64,3 +61,9 @@ if __name__ == "__main__":
     for target in targets:
         caminho_modelo = f"tagging/models/modelo_{target.lower()}.pkl"
         treinar_modelo(df, target, features, caminho_modelo)
+
+
+if __name__ == "__main__":
+    caminho_csv = "data/AllData.csv"
+    df = carregar_dados(caminho_csv)
+    train_models(df)

@@ -47,7 +47,6 @@ def extract_data(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path, delimiter=";")
     df = extract_extrato(df) if "Saldo" in df.columns else extract_fatura(df)
 
-
     df.rename(
         columns={
             "Operacao": "Tipo",
@@ -66,7 +65,7 @@ def extract_bulk_data(file_paths: list) -> pd.DataFrame:
 if __name__ == "__main__":
     import os
 
-    file_paths = os.listdir("raw_data")
+    file_paths = os.listdir("data/raw_data")
     file_paths = [
         os.path.join("raw_data", file) for file in file_paths if file.endswith(".csv")
     ]
