@@ -1,0 +1,11 @@
+{
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "[python]": {
+        "editor.formatOnSave": true,
+    },
+
+  "python.defaultInterpreterPath": "./.venv/Scripts/python.exe",
+  "search.exclude": {
+    "**/.venv": true
+  }
+}
