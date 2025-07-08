@@ -110,7 +110,7 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2024-10-06 17:20:00,735.73,Pedro Paulo C Vieira,Pix recebido de Pedro Paulo C Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo)
 2024-10-06 12:03:00,200.0,Guilherme S O Brito,Pix recebido de Guilherme S O Brito,Recebimento,Dívida,Emprestimo,Guilherme S O Brito
 2024-10-05 10:20:00,1000.0,Pedro Paulo C Vieira,Pix recebido de Pedro Paulo C Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo)
-2024-10-01 18:43:00,-6.0,PG *TON EMPORIO JARD GOIANIA BR,PG *TON EMPORIO JARD GOIANIA BR,Gasto,Alimentação,Lanche,Lanchenete Fatesg
+2024-10-01 18:43:00,-6.0,PG *TON EMPORIO JARD GOIANIA BR,PG *TON EMPORIO JARD GOIANIA BR,Gasto,Alimentação,Lanche,Lanchonete Fatesg
 2025-03-28 15:41:00,-35.0,Maika Rocha Melo,Pix enviado para Maika Rocha Melo,Gasto,Educação,Taxas e Documentos,Maika Rocha Melo
 2025-03-27 20:04:00,-14.5,Rodrigo Santana Esperidião,Pix enviado para Rodrigo Santana Esperidião,Gasto,Educação,Projeto,Rodrigo Santana Esperidião
 2025-03-20 13:26:00,1800.0,Guilherme Santiago Oliveira de Brito,Pix recebido de Guilherme Santiago Oliveira de Brito,Recebimento,Dívida,Emprestimo,Guilherme Santiago Oliveira de Brito
@@ -186,7 +186,7 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2024-10-02 00:00:00,-21.95,UBER *UBER *TRIP,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-10-03 00:00:00,-552.0,EC *TICKETMASTER,Compra no Cartão de Crédito,Gasto,Entreterimento,Show,Ticketmaster
 2024-10-04 00:00:00,-20.92,UBER *UBER *TRIP,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
-2024-10-09 00:00:00,-2.0,VALDINEI ANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2024-10-09 00:00:00,-2.0,VALDINEI ANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2024-10-09 00:00:00,-17.0,MANZIARENA,Compra no Cartão de Crédito,Gasto,Saude/Bem-Estar,Esporte,Manziarena
 2024-10-10 00:00:00,-26.98,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-10-11 00:00:00,-5.5,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
@@ -199,7 +199,7 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2024-09-18 00:00:00,-26.5,MANIVERDE LANCHES,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Jiló
 2024-09-18 00:00:00,-10.94,UBER *UBER *TRIP,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-09-18 00:00:00,-9.98,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
-2024-09-19 00:00:00,-2.5,VALDINEI ANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2024-09-19 00:00:00,-2.5,VALDINEI ANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2024-09-25 00:00:00,354.16,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,Pagamentos Validos Normais
 2024-09-26 00:00:00,-17.9,UBER *UBER *TRIP,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-11-07 00:00:00,-12.92,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
@@ -228,7 +228,7 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2024-11-15 00:00:00,-140.0,PONTO ZERO CAMISETAS,Compra no Cartão de Crédito,Gasto,Compras,Roupas e Calçados,Ibirapuera
 2024-11-15 00:00:00,-52.0,SHOP IBIRAPUERA,Compra no Cartão de Crédito,Gasto,Compras,Roupas e Calçados,Ibirapuera
 2024-12-15 00:00:00,-12.03,UBER * PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
-2024-11-16 00:00:00,-22.0,PG *TON EDNEIA TORRE,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Lanchenete Fatesg
+2024-11-16 00:00:00,-22.0,PG *TON EDNEIA TORRE,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Lanchonete Fatesg
 2024-12-16 00:00:00,-15.11,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-11-17 00:00:00,-9.98,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2024-11-21 00:00:00,-20.0,MANZI ARENA,Compra no Cartão de Crédito,Gasto,Saude/Bem-Estar,Esporte,Manziarena
@@ -263,8 +263,8 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2024-12-27 00:00:00,-130.0,SERVETERIA CASCAO,Compra no Cartão de Crédito,Gasto,Alimentação,Sorveteria,Cascão sorveteria
 2024-12-27 00:00:00,-57.9,JUNIOR RESTAURANT,Compra no Cartão de Crédito,Gasto,Alimentação,Restaurante,Junior restaurant
 2025-02-01 00:00:00,-11.98,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
-2025-02-03 00:00:00,-5.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
-2025-02-04 00:00:00,-6.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2025-02-03 00:00:00,-5.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
+2025-02-04 00:00:00,-6.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-01-10 00:00:00,-56.1,SYMPLA 2L1F18BU4DY,Compra no Cartão de Crédito,Gasto,Entreterimento,Show,Sympla
 2025-01-10 00:00:00,-548.0,SENAI DEPART*SENAIPARC1,Compra no Cartão de Crédito,Gasto,Educação,Faculdade,Senai
 2025-01-10 00:00:00,-17.0,RESTAURANTE DA ALESANDRA,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Distribuidora
@@ -345,17 +345,17 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2025-05-03 00:00:00,-49.9,DOM RAPHA,Compra no Cartão de Crédito,Gasto,Alimentação,Sanduicheria,Dom Rapha
 2025-05-06 00:00:00,-10.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-04-08 00:00:00,-31.0,SUBWAY,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Subway
-2025-04-11 00:00:00,-13.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2025-04-11 00:00:00,-13.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-04-14 00:00:00,-11.9,EBN*SPOTIFY,Compra no Cartão de Crédito,Gasto,Entreterimento,Assinaturas e Streaming,Spotify
 2025-04-14 00:00:00,-6.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
-2025-04-15 00:00:00,-6.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2025-04-15 00:00:00,-6.0,EMPORIO JARDIM,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-04-15 00:00:00,437.29,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,Pagamentos Validos Normais
 2025-04-16 00:00:00,-6.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-04-16 00:00:00,-25.97,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2025-04-19 00:00:00,-48.98,UBER * PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2025-04-19 00:00:00,-45.92,UBER* PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2025-04-20 00:00:00,-3.39,DROGAMARYS,Compra no Cartão de Crédito,Gasto,Saude/Bem-Estar,Medicamento,Drogamarys
-2025-04-22 00:00:00,-6.0,ANDRADE LANCHONETE LTD,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2025-04-22 00:00:00,-6.0,ANDRADE LANCHONETE LTD,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-04-22 00:00:00,-20.5,SUBWAY,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Subway
 2025-04-23 00:00:00,-14.93,UBER * PENDING,Compra no Cartão de Crédito,Gasto,Transporte,Transporte por App,Uber
 2025-04-25 00:00:00,-6.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
@@ -372,8 +372,8 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome
 2025-05-16 00:00:00,-21.0,MANIVERDE LANCHES,Compra no Cartão de Crédito,Gasto,Alimentação,Lanche,Subway
 2025-05-24 00:00:00,-15.49,DROGAMARYS,Compra no Cartão de Crédito,Gasto,Saude/Bem-Estar,Medicamento,Drogamarys
 2025-05-24 00:00:00,-68.0,LA SANTA MADRE,Compra no Cartão de Crédito,Gasto,Alimentação,Sanduicheria,La Santa Madre
-2025-05-28 00:00:00,-10.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
-2025-05-30 00:00:00,-3.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchenete Fatesg
+2025-05-28 00:00:00,-10.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
+2025-05-30 00:00:00,-3.0,VALDINEIANDRADE,Compra no Cartão de Crédito,Gasto,Alimentação,Salgado,Lanchonete Fatesg
 2025-07-01 00:00:00,-4.3,SITPASS*1T250701-Q4XE,Compra no Cartão de Crédito,Gasto,Transporte,Transporte Público,Sitpass
 2025-07-01 00:00:00,-4.3,SITPASS*1T250701-UFPR,Compra no Cartão de Crédito,Gasto,Transporte,Transporte Público,Sitpass
 2025-07-02 00:00:00,-4.3,SITPASS*1T250702-XY54,Compra no Cartão de Crédito,Gasto,Transporte,Transporte Público,Sitpass
