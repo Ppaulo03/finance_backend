@@ -27,7 +27,7 @@ def preparar_entrada(data, valor, origem, descricao):
     ]
 
 
-def sugerir_rotulos(data, valor, origem, descricao):
+def sugerir_rotulos(data, valor, origem, descricao, **kwargs):
     try:
         modelos = {
             "Tipo": joblib.load(f"{MODEL_PATH}modelo_tipo.pkl"),

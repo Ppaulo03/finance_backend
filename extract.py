@@ -1,5 +1,5 @@
 import pandas as pd
-import json
+from io import BytesIO
 
 
 def clean_money_value(value: str) -> float:
@@ -42,7 +42,7 @@ def extract_fatura(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def extract_data(file_path: str) -> pd.DataFrame:
+def extract_data(file_path: str | BytesIO) -> pd.DataFrame:
     """Carrega os dados de um arquivo CSV e retorna um DataFrame."""
     df = pd.read_csv(file_path, delimiter=";")
     df = extract_extrato(df) if "Saldo" in df.columns else extract_fatura(df)
