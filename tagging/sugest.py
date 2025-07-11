@@ -28,7 +28,6 @@ def preparar_entrada(data, valor, origem, descricao):
 
 
 def sugerir_rotulos(data, valor, origem, descricao):
-
     try:
         modelos = {
             "Tipo": joblib.load(f"{MODEL_PATH}modelo_tipo.pkl"),
@@ -41,12 +40,7 @@ def sugerir_rotulos(data, valor, origem, descricao):
         return {}
 
     entrada = preparar_entrada(data, valor, origem, descricao)
-    sugestoes = {}
-
-    for rotulo, modelo in modelos.items():
-        sugestoes[rotulo] = modelo.predict(entrada)[0]
-
-    return sugestoes
+    return {rotulo: modelo.predict(entrada)[0] for rotulo, modelo in modelos.items()}
 
 
 if __name__ == "__main__":
