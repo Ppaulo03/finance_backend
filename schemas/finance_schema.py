@@ -17,7 +17,7 @@ class FinanceEntrySchema(BaseModel):
     )
     nome: str = Field(..., description="Name associated with the entry")
     conta: int = Field(..., description="Account associated with the entry")
-    notas: str = Field(..., description="Additional notes for the entry")
+    notas: str = Field(default="", description="Additional notes for the entry")
 
 
 class Account(BaseModel):

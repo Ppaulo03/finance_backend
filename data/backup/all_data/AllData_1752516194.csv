@@ -1,4 +1,4 @@
-Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome,Conta,Notas
+﻿Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome,Conta,Notas
 2024-03-31 19:00:00,339.16,Pedro Paulo Carvalho Vieira,Pix recebido de Pedro Paulo Carvalho Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo),1,Pix recebido de Pedro Paulo Carvalho Vieira
 2024-02-29 11:09:00,-500.0,para conta investimento,Transferência enviada para conta investimento,Transferência,Contas Próprias,Aporte para Investimento,"Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)",1,Transferência enviada para conta investimento
 2024-02-29 11:08:00,500.0,Pedro Paulo Carvalho Vieira,Pix recebido de Pedro Paulo Carvalho Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo),1,Pix recebido de Pedro Paulo Carvalho Vieira
@@ -424,5 +424,4 @@ Data,Valor,Destino / Origem,Descricao,Tipo,Categoria,Subcategoria,Nome,Conta,Not
 2025-06-30 00:00:00,-4.3,SITPASS*1T250630-4H9M,Compra no Cartão de Crédito,Gasto,Transporte,Transporte Público,Sitpass,2,Compra no Cartão de Crédito
 2025-06-30 00:00:00,-4.3,SITPASS*1T250630-BIG4,Compra no Cartão de Crédito,Gasto,Transporte,Transporte Público,Sitpass,2,Compra no Cartão de Crédito
 2024-02-29 11:09:46,-500.0,para conta investimento,Transferência enviada para conta investimento,Transferência,Contas Próprias,Aporte para Investimento,"Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)",1,
-2024-02-29 11:08:59,500.0,Pedro Paulo Carvalho Vieira,Pix recebido de Pedro Paulo Carvalho Vieira,Transferência,Contas Próprias,Movimentação Interna,"Pedro Paulo Carvalho Vieira (si mesmo)",1,
-2024-01-31 09:25:27,-900.0,para conta investimento,Transferência enviada para conta investimento,Transferência,Contas Próprias,Aporte para Investimento,"Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)",1,
+2024-02-29 11:08:59,500.0,Pedro Paulo Carvalho Vieira,Pix recebido de Pedro Paulo Carvalho Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo),1,

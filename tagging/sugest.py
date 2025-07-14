@@ -53,6 +53,6 @@ if __name__ == "__main__":
     }
 
     sugestao = sugerir_rotulos(**exemplo)
-    logger.info("\n=== Sugestão de Rótulos ===")
+    logger.info("=== Sugestão de Rótulos ===")
     for k, v in sugestao.items():
         logger.info(f"{k}: {v}")
