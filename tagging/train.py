@@ -51,7 +51,8 @@ def treinar_modelo(df: pd.DataFrame, target: str, features: list, save_path: str
     logger.info(f"Modelo salvo em: {save_path}")
 
 
-def train_models(df: pd.DataFrame):
+def train_models(caminho_csv: str):
+    df = carregar_dados(caminho_csv)
     features = ["Valor", "Sinal", "Hora", "DiaSemana", "Destino / Origem", "Descricao"]
     targets = ["Tipo", "Categoria", "Subcategoria", "Nome"]
 
@@ -65,5 +66,4 @@ def train_models(df: pd.DataFrame):
 
 if __name__ == "__main__":
     caminho_csv = "data/AllData.csv"
-    df = carregar_dados(caminho_csv)
-    train_models(df)
+    train_models(caminho_csv)
