@@ -1,0 +1,10 @@
+/app
+├── main.py                ← Entrypoint do Streamlit
+├── pages/                 ← Páginas Streamlit (multi-view)
+├── services/              ← Lógica das análises e regras
+│   ├── prophet_service.py ← Previsão de gastos
+│   ├── alerts.py          ← Regras de alerta
+│   └── utils.py           ← Funções auxiliares
+├── data/                  ← Armazenamento de CSVs temporários ou mockados
+├── assets/                ← Logos, ícones, etc.
+└── models/                ← Treinamento de modelos
