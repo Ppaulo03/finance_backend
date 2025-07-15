@@ -28,7 +28,7 @@ if "adicionando_csv" not in st.session_state:
     st.session_state.adicionando_csv = False
 
 if "upload_key" not in st.session_state:
-    st.session_state.upload_key = "upload_1"
+    st.session_state.upload_key = f"upload_{datetime.now().timestamp()}"
 
 st.set_page_config(layout="wide")
 db = FinanceDB()
@@ -145,13 +145,13 @@ if st.session_state.adicionando_csv:
 
     else:
         st.success("Todas as transações foram processadas.")
-        st.session_state["atual"] = 0
         if st.button("Adicionar mais CSV"):
             st.dataframe(
                 pd.DataFrame([e.model_dump() for e in st.session_state["processados"]])
             )
-            st.session_state.adicionando_csv = False
             st.session_state.upload_key = f"upload_{datetime.now().timestamp()}"
+            st.session_state.adicionando_csv = False
+            st.session_state["atual"] = 0
             st.rerun()
 
 
