@@ -2,6 +2,7 @@ import MySQLdb
 from pydantic import BaseModel
 import pandas as pd
 from typing import Optional, List, Dict, Any
+from loguru import logger
 
 
 class MySQLConnection:
@@ -68,7 +69,7 @@ class MySQLConnection:
         df = pd.DataFrame(results)
         self.close()
         if df.empty:
-            print(f"Nenhuma entrada encontrada na tabela {table}.")
+            logger.info(f"Nenhuma entrada encontrada na tabela {table}.")
             return pd.DataFrame()
 
         return df

@@ -4,9 +4,15 @@ from sklearn.compose import ColumnTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
+from time import time
 from loguru import logger
 import pandas as pd
 import joblib
+import os
+
+base_path = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = f"{base_path}/models"
+LOG_PATH = f"{base_path}/logs"
 
 
 def carregar_dados(path: str):
@@ -18,7 +24,9 @@ def carregar_dados(path: str):
     return df
 
 
-def treinar_modelo(df: pd.DataFrame, target: str, features: list, save_path: str):
+def treinar_modelo(
+    df: pd.DataFrame, target: str, features: list, save_path: str, time_marker: float
+):
     df = df[features + [target]].dropna()
     X_train, X_test, y_train, y_test = train_test_split(
         df[features], df[target], test_size=0.2, random_state=42
@@ -44,7 +52,7 @@ def treinar_modelo(df: pd.DataFrame, target: str, features: list, save_path: str
 
     report = classification_report(y_test, y_pred, zero_division=0)
     logs = f"\n=== Resultado para '{target}' ===\n{report}"
-    with open("tagging/logs/training_log.txt", "a") as log_file:
+    with open(f"{LOG_PATH}/training_log_{time_marker}.txt", "a") as log_file:
         log_file.write(logs)
 
     joblib.dump(pipeline, save_path)
@@ -56,14 +64,9 @@ def train_models(caminho_csv: str):
     features = ["Valor", "Sinal", "Hora", "DiaSemana", "Destino / Origem", "Descricao"]
     targets = ["Tipo", "Categoria", "Subcategoria", "Nome"]
 
-    with open("tagging/logs/training_log.txt", "w") as log_file:
-        log_file.write("")
-
+    os.makedirs(LOG_PATH, exist_ok=True)
+    os.makedirs(MODEL_PATH, exist_ok=True)
+    time_marker = time()
     for target in targets:
-        caminho_modelo = f"services/tagging/models/modelo_{target.lower()}.pkl"
-        treinar_modelo(df, target, features, caminho_modelo)
-
-
-if __name__ == "__main__":
-    caminho_csv = "data/AllData.csv"
-    train_models(caminho_csv)
+        caminho_modelo = f"{MODEL_PATH}/modelo_{target.lower()}.pkl"
+        treinar_modelo(df, target, features, caminho_modelo, time_marker)

@@ -2,8 +2,7 @@
 import pandas as pd
 import joblib
 from loguru import logger
-
-MODEL_PATH = "services/tagging/models/"
+from .train import MODEL_PATH
 
 
 def preparar_entrada(data, valor, origem, descricao):
@@ -27,13 +26,13 @@ def preparar_entrada(data, valor, origem, descricao):
     ]
 
 
-def sugerir_rotulos(data, valor, origem, descricao, **kwargs):
+def sugerir_rotulos(data, valor, origem, descricao, **_):
     try:
         modelos = {
-            "Tipo": joblib.load(f"{MODEL_PATH}modelo_tipo.pkl"),
-            "Categoria": joblib.load(f"{MODEL_PATH}modelo_categoria.pkl"),
-            "Subcategoria": joblib.load(f"{MODEL_PATH}modelo_subcategoria.pkl"),
-            "Nome": joblib.load(f"{MODEL_PATH}modelo_nome.pkl"),
+            "Tipo": joblib.load(f"{MODEL_PATH}/modelo_tipo.pkl"),
+            "Categoria": joblib.load(f"{MODEL_PATH}/modelo_categoria.pkl"),
+            "Subcategoria": joblib.load(f"{MODEL_PATH}/modelo_subcategoria.pkl"),
+            "Nome": joblib.load(f"{MODEL_PATH}/modelo_nome.pkl"),
         }
     except FileNotFoundError as e:
         logger.warning(f"Erro ao carregar os modelos: {e}")
