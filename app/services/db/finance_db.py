@@ -4,12 +4,10 @@ from services.tagging import train_models
 from loguru import logger
 from time import time
 import pandas as pd
-import os
 
 USER = "root"
 PASSWORD = "0123"
 DATABASE = "financeiro"
-
 
 backup_folder = "data/backup"
 db_file = "data/AllData.csv"
