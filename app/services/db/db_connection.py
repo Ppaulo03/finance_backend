@@ -67,6 +67,10 @@ class MySQLConnection:
         sql = f"SELECT * FROM {table}"
         results = self.fetchall(sql)
         df = pd.DataFrame(results)
+
+        for col in df.select_dtypes(include=["object"]).columns:
+            df[col] = df[col].str.strip() if df[col].dtype == "object" else df[col]
+
         self.close()
         if df.empty:
             logger.info(f"Nenhuma entrada encontrada na tabela {table}.")
