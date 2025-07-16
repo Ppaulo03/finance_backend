@@ -144,17 +144,22 @@ if st.session_state.adicionando_csv:
                 ):
                     st.error("Por favor, preencha todos os campos obrigatórios.")
                 else:
+
                     entry = FinanceEntrySchema(
-                        data=row["Data"],
-                        valor=row["Valor"],
-                        destino_origem=row["Destino / Origem"],
-                        descricao=row["Descricao"],
-                        tipo=tipo,
-                        categoria=categoria,
-                        subcategoria=subcategoria,
-                        nome=nome,
-                        conta=accounts[accounts["nome"] == conta]["id"].values[0],
-                        notas=notas,
+                        **{
+                            "Data": row["Data"],
+                            "Valor": row["Valor"],
+                            "Destino / Origem": row["Destino / Origem"],
+                            "Descricao": row["Descricao"],
+                            "Tipo": tipo,
+                            "Categoria": categoria,
+                            "Subcategoria": subcategoria,
+                            "Nome": nome,
+                            "Conta": accounts[accounts["nome"] == conta]["id"].values[
+                                0
+                            ],
+                            "Notas": notas,
+                        },
                     )
                     if len(st.session_state["processados"]) <= idx:
                         st.session_state["processados"].append(entry)
