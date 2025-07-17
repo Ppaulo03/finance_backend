@@ -3,6 +3,10 @@ import pandas as pd
 from services.utils import money
 from services.db import FinanceDB
 
+import locale
+
+locale.setlocale(locale.LC_TIME, "Portuguese_Brazil.1252")
+
 st.title("📄 Transações")
 
 # 🔹 Carregar dados
