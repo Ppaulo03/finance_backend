@@ -1,4 +1,4 @@
-from app.services.db import FinanceDB
+from services.db import FinanceDB
 from schemas import FinanceEntrySchema, Account
 import pandas as pd
 

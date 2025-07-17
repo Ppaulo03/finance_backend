@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-def prever_gastos(df_semanais: pd.DataFrame, semanas=6):
+def prever_gastos(df_semanais: pd.DataFrame, semanas=3):
     model = Prophet()
     df = df_semanais.rename(columns={"semana": "ds", "valor": "y"})
     model.fit(df)

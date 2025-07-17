@@ -26,8 +26,9 @@ categorias_selecionadas = st.sidebar.multiselect(
     "Categorias", categorias_disponiveis, default=categorias_disponiveis
 )
 
-min_date = df["data"].min().date()
-max_date = df["data"].max().date()
+min_date = df["data"].min()
+max_date = df["data"].max()
+
 data_ini = st.sidebar.date_input(
     "Data inicial", value=min_date, min_value=min_date, max_value=max_date
 )
@@ -54,13 +55,13 @@ analise = st.sidebar.selectbox(
     "Escolha a análise",
     [
         "Tendências de Gastos",
+        "Gastos por Semana",
         "Gastos por Categoria",
         "Gastos Recorrentes",
-        "Análise de Trend",
-        "Gastos por Semana",
-        "Previsão de Gastos",
         "Pizza de Gastos",
         "Comparativo Gasto vs Receita",
+        "Análise de Trend",
+        "Previsão de Gastos",
     ],
 )
 

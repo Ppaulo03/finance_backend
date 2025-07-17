@@ -19,7 +19,8 @@ st.sidebar.header("Filtros")
 
 df["data"] = pd.to_datetime(df["data"])
 data_min = df["data"].min().replace(day=1)
-data_max = df["data"].max().replace(day=1)
+data_max = df["data"].max() + pd.offsets.MonthEnd(1) + pd.offsets.Day(1)
+
 todos_meses = pd.date_range(start=data_min, end=data_max, freq="MS")
 meses_formatados = todos_meses.strftime("%B %Y").tolist()
 meses_formatados = meses_formatados[::-1]
@@ -64,11 +65,6 @@ mes_selecionado = st.sidebar.selectbox(
 periodo_selecionado = pd.to_datetime(mes_selecionado, format="%B %Y").to_period("M")
 
 
-# 🔹 Tipo
-tipos = df["tipo"].dropna().unique().tolist()
-tipo = st.sidebar.multiselect("Tipo", tipos, default=tipos)
-
-
 # 🔹 Conta
 df["conta"] = df["conta"].map(
     lambda x: (
@@ -80,14 +76,17 @@ df["conta"] = df["conta"].map(
 contas = df["conta"].dropna().unique().tolist()
 conta = st.sidebar.multiselect("Conta", contas, default=contas)
 
+
+# 🔹 Tipo
+tipos = df["tipo"].dropna().unique().tolist()
+tipo = st.sidebar.multiselect("Tipo", tipos, default=tipos)
+
 # 🔹 Busca por nome
 nome_busca = st.sidebar.text_input("Buscar por nome")
 
 # 🔽 Aplicar filtros
 df_filtrado = df[
-    (df["data"].dt.to_period("M") == periodo_selecionado)
-    & (df["tipo"].isin(tipo))
-    & (df["conta"].isin(conta))
+    (df["data"].dt.to_period("M") == periodo_selecionado) & (df["conta"].isin(conta))
 ]
 
 if nome_busca:
@@ -102,6 +101,8 @@ total_receitas = df_filtrado[df_filtrado["tipo"] == "Recebimento"]["valor"].sum(
 col1, col2 = st.columns(2)
 col1.metric("💸 Total de Gastos", money(total_gastos))
 col2.metric("💰 Total de Receitas", money(total_receitas))
+
+df_filtrado = df_filtrado[df_filtrado["tipo"].isin(tipo)]
 
 
 def style_valor(val, tipo):
