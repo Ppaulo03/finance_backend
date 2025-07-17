@@ -32,12 +32,28 @@ def extract_extrato(df: pd.DataFrame) -> pd.DataFrame:
 
 def extract_fatura(df: pd.DataFrame) -> pd.DataFrame:
     """Extrai e transforma os dados da fatura do cartão de crédito."""
-    df = df.drop(columns=["Portador", "Parcela"], errors="ignore")
+
     df["Data"] = pd.to_datetime(df["Data"], format="%d/%m/%Y")
+    df["Parcela"] = df.apply(
+        lambda row: (pd.to_numeric(row["Parcela"].split("de")[0], errors="coerce")),
+        axis=1,
+    )
+    print(df["Parcela"])
+    df["Data"] = df.apply(
+        lambda row: (
+            row["Data"] + pd.DateOffset(months=row["Parcela"] - 1)
+            if "Parcela" in row and pd.notna(row["Parcela"])
+            else row["Data"]
+        ),
+        axis=1,
+    )
+
     df["Valor"] = df["Valor"].apply(clean_money_value)
     df["Valor"] = -df["Valor"]
     df["Descricao"] = "Compra no Cartão de Crédito"
     df["Operacao"] = df.apply(classificar_operacao, axis=1)
+
+    df = df.drop(columns=["Portador", "Parcela"], errors="ignore")
     df = df.rename(columns={"Estabelecimento": "Destino / Origem"})
     return df
 
@@ -65,9 +81,12 @@ def extract_bulk_data(file_paths: list) -> pd.DataFrame:
 if __name__ == "__main__":
     import os
 
-    file_paths = os.listdir("data/raw_data")
-    file_paths = [
-        os.path.join("raw_data", file) for file in file_paths if file.endswith(".csv")
-    ]
-    df = extract_bulk_data(file_paths)
-    df.to_csv("extrato_final.csv", index=False, encoding="utf-8-sig", sep=";")
+    # file_paths = os.listdir("data/raw_data")
+    # file_paths = [
+    #     os.path.join("raw_data", file) for file in file_paths if file.endswith(".csv")
+    # ]
+    # df = extract_bulk_data(file_paths)
+    # df.to_csv("extrato_final.csv", index=False, encoding="utf-8-sig", sep=";")
+
+    path = r"data\backup\raw_data\Fatura2025-04-15.csv"
+    print(extract_data(path))
