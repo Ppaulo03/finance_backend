@@ -70,5 +70,4 @@ if __name__ == "__main__":
         os.path.join("raw_data", file) for file in file_paths if file.endswith(".csv")
     ]
     df = extract_bulk_data(file_paths)
-    df = df.drop_duplicates()
     df.to_csv("extrato_final.csv", index=False, encoding="utf-8-sig", sep=";")

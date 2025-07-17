@@ -93,3 +93,28 @@ class FinanceDB(MySQLConnection):
             encoding="utf-8-sig",
         )
         train_models(db_file)
+
+    def get_treated_data(self) -> pd.DataFrame:
+        """Retorna os dados tratados do banco de dados."""
+        df = self.get_financas()
+        if df.empty:
+            logger.warning("Nenhum dado encontrado na tabela 'financas'.")
+            return pd.DataFrame()
+
+        df["data"] = pd.to_datetime(df["data"])
+        df["valor"] = df["valor"].astype(float)
+        df["conta"] = df["conta"].astype(int)
+
+        # Renomeia colunas para padronização
+        df.rename(
+            columns={
+                "destino_origem": "Destino / Origem",
+                "descricao": "Descrição",
+                "tipo": "Tipo",
+                "categoria": "Categoria",
+                "subcategoria": "Subcategoria",
+                "nome": "Nome",
+            },
+            inplace=True,
+        )
+        return df

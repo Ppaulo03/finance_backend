@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
 
 
@@ -34,6 +34,15 @@ class FinanceEntrySchema(BaseModel):
     notas: str = Field(
         default="", description="Additional notes for the entry", alias="Notas"
     )
+
+    @field_validator("valor", mode="before")
+    def parse_valor(cls, v):
+        if isinstance(v, str):
+            try:
+                return float(v.replace(",", "."))  # permite números com vírgula
+            except ValueError as e:
+                raise ValueError(f"Não foi possível converter '{v}' para float.") from e
+        return v
 
 
 class Account(BaseModel):
