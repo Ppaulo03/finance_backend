@@ -28,9 +28,14 @@ categorias_selecionadas = st.sidebar.multiselect(
 
 min_date = df["data"].min().date()
 max_date = df["data"].max().date()
-data_ini, data_fim = st.sidebar.date_input("Período", value=(min_date, max_date))
+data_ini = st.sidebar.date_input(
+    "Data inicial", value=min_date, min_value=min_date, max_value=max_date
+)
 
-# 🔄 Aplicar filtros
+data_fim = st.sidebar.date_input(
+    "Data final", value=max_date, min_value=min_date, max_value=max_date
+)
+
 df_filtrado = df.copy()
 df_filtrado = df_filtrado[
     (df_filtrado["categoria"].isin(categorias_selecionadas))
@@ -45,22 +50,28 @@ if df_filtrado.empty:
     st.warning("Nenhuma transação encontrada com os filtros aplicados.")
     st.stop()
 
-# 🔍 Seleção da análise
 analise = st.sidebar.selectbox(
     "Escolha a análise",
     [
-        "Pizza de Gastos",
+        "Tendências de Gastos",
         "Gastos por Categoria",
+        "Gastos Recorrentes",
+        "Análise de Trend",
         "Gastos por Semana",
         "Previsão de Gastos",
+        "Pizza de Gastos",
         "Comparativo Gasto vs Receita",
     ],
 )
 
-# 📊 Renderizar gráfico
 if analise == "Gastos por Categoria":
     st.subheader("🧮 Gastos por Categoria")
     st.pyplot(gastos_por_categoria(df_filtrado), use_container_width=False)
+
+elif analise == "Análise de Trend":
+    st.subheader("📊 Análise de Trend")
+    fig_trend = trend_analysis(df_filtrado)
+    st.pyplot(fig_trend, use_container_width=False)
 
 elif analise == "Gastos por Semana":
     st.subheader("📊 Evolução Semanal")
@@ -84,3 +95,16 @@ elif analise == "Pizza de Gastos":
 elif analise == "Comparativo Gasto vs Receita":
     st.subheader("⚖️ Comparativo entre Gastos e Receitas")
     st.pyplot(comparativo_gasto_receita(df_filtrado), use_container_width=False)
+
+elif analise == "Tendências de Gastos":
+    st.subheader("📈 Tendências de Gastos Totais")
+    fig_tendencia = tendencia_gastos_totais(df_filtrado)
+    st.pyplot(fig_tendencia, use_container_width=False)
+
+elif analise == "Gastos Recorrentes":
+    st.subheader("🔄 Gastos Recorrentes")
+    df_recorrentes = gastos_recorrentes(df_filtrado)
+    if df_recorrentes.empty:
+        st.warning("Nenhum gasto recorrente encontrado.")
+    else:
+        st.dataframe(df_recorrentes)

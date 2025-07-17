@@ -114,7 +114,7 @@ def style_valor(val, tipo):
 
 
 df_style_base = df_filtrado[
-    ["data", "nome", "valor", "categoria", "conta", "tipo"]
+    ["data", "nome", "valor", "categoria", "subcategoria", "conta", "tipo"]
 ].copy()
 df_style_base = df_style_base.sort_values(by="data", ascending=False)
 
@@ -128,6 +128,7 @@ def apply_style(row):
         None,
         None,
         color,
+        None,
         None,
         None,
         color,
