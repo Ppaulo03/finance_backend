@@ -63,6 +63,8 @@ def treinar_modelo(
 
 def train_models(caminho_csv: str):
     df = carregar_dados(caminho_csv)
+    if len(df) < 20:
+        return
     features = ["Valor", "Sinal", "Hora", "DiaSemana", "Destino / Origem", "Descricao"]
     targets = ["Tipo", "Categoria", "Subcategoria", "Nome"]
 

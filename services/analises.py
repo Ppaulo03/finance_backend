@@ -80,16 +80,17 @@ def comparativo_gasto_receita(df):
 
 
 def trend_analysis(df):
-    # Garante que a data esteja como datetime
-    df["data"] = pd.to_datetime(df["data"])
 
-    # Garante que valores estejam negativos para gastos
     df_gastos = df[df["tipo"] == "Gasto"].copy()
     df_gastos["valor"] = -df_gastos["valor"]
+    # Garante que a data esteja como datetime
+    df_gastos["data"] = pd.to_datetime(df_gastos["data"])
+
+    # Garante que valores estejam negativos para gastos
 
     # Agrupa por mês e categoria
-    df["mes"] = df["data"].dt.to_period("M").dt.to_timestamp()
-    dados = df.groupby(["mes", "categoria"])["valor"].sum().unstack().fillna(0)
+    df_gastos["mes"] = df_gastos["data"].dt.to_period("M").dt.to_timestamp()
+    dados = df_gastos.groupby(["mes", "categoria"])["valor"].sum().unstack().fillna(0)
 
     # Plot
     fig, ax = plt.subplots(figsize=(10, 5))

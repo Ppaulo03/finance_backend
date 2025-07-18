@@ -59,9 +59,9 @@ db.close()
 # df_extratos.to_csv("extratos.csv", index=False, encoding="utf-8-sig")
 # df_faturas.to_csv("faturas.csv", index=False, encoding="utf-8-sig")
 
-from services.pluggy.sync import sync
+# from services.pluggy.sync import sync
 
-sync()
+# sync()
 
 # from services.pluggy.pluggy_client import listar_transacoes
 

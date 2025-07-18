@@ -49,6 +49,18 @@ class FinanceEntrySchema(BaseModel):
                 raise ValueError(f"Não foi possível converter '{v}' para float.") from e
         return v
 
+    @field_validator("categoria", mode="before")
+    def parse_categoria(cls, v):
+        return v.strip() if isinstance(v, str) else v
+
+    @field_validator("subcategoria", mode="before")
+    def parse_subcategoria(cls, v):
+        return v.strip() if isinstance(v, str) else v
+
+    @field_validator("nome", mode="before")
+    def parse_nome(cls, v):
+        return v.strip() if isinstance(v, str) else v
+
 
 class Account(BaseModel):
     id: int = Field(default=0, description="Unique identifier for the account")
