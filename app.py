@@ -17,7 +17,7 @@ df = st.session_state.df_financas.copy()
 accounts = st.session_state.df_accounts.copy()
 
 # Dados
-saldo_total, saldo_por_conta = get_values()
+saldo_total, saldo_por_conta = get_values(df, accounts)
 # --- CABEÇALHO ---
 st.markdown(
     "<h1 style='color:#2E7D32; text-align:center;'>📊 Resumo Financeiro</h1>",
