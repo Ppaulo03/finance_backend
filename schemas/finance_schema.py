@@ -49,3 +49,7 @@ class Account(BaseModel):
     id: int = Field(default=0, description="Unique identifier for the account")
     nome: str = Field(..., description="Name of the account")
     saldo_inicial: float = Field(..., description="Current balance of the account")
+    open_finance_id: str = Field(
+        default="",
+        description="Open Finance identifier for the account",
+    )
