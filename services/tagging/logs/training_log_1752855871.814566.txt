@@ -1,0 +1,63 @@
+
+=== Resultado para 'Tipo' ===
+               precision    recall  f1-score   support
+
+        Gasto       1.00      1.00      1.00         5
+  Recebimento       1.00      1.00      1.00         2
+Transferência       1.00      1.00      1.00        16
+
+     accuracy                           1.00        23
+    macro avg       1.00      1.00      1.00        23
+ weighted avg       1.00      1.00      1.00        23
+
+=== Resultado para 'Categoria' ===
+                      precision    recall  f1-score   support
+
+         Alimentação       1.00      1.00      1.00         1
+     Contas Próprias       0.93      1.00      0.97        14
+            Educação       0.00      0.00      0.00         1
+      Entreterimento       1.00      0.50      0.67         2
+              Outros       0.67      1.00      0.80         2
+           Presentes       1.00      1.00      1.00         1
+Serviços Financeiros       1.00      1.00      1.00         2
+
+            accuracy                           0.91        23
+           macro avg       0.80      0.79      0.78        23
+        weighted avg       0.89      0.91      0.89        23
+
+=== Resultado para 'Subcategoria' ===
+                             precision    recall  f1-score   support
+
+   Aporte para Investimento       1.00      1.00      1.00         3
+                     Evento       0.00      0.00      0.00         1
+                  Fast Food       1.00      1.00      1.00         1
+Fatura do Cartão de Crédito       1.00      1.00      1.00         2
+                      Jogos       0.00      0.00      0.00         1
+       Movimentação Interna       1.00      1.00      1.00        11
+                     Outros       0.50      1.00      0.67         2
+       Presente em Dinheiro       1.00      1.00      1.00         1
+                        Pub       0.00      0.00      0.00         0
+                       Show       0.00      0.00      0.00         1
+
+                   accuracy                           0.87        23
+                  macro avg       0.55      0.60      0.57        23
+               weighted avg       0.83      0.87      0.84        23
+
+=== Resultado para 'Nome' ===
+                                                            precision    recall  f1-score   support
+
+                            Ataildes Maria Vieira Nogueira       1.00      1.00      1.00         1
+                                              BANCO XP S/A       1.00      1.00      1.00         2
+                                               Burger King       1.00      1.00      1.00         1
+                                Marcos Pimenta de Carvalho       0.00      0.00      0.00         1
+                                              Paulo Vieira       0.00      0.00      0.00         1
+                               Paulo Vitor Carvalho Vieira       0.25      1.00      0.40         1
+                    Pedro Paulo Carvalho Vieira (si mesmo)       1.00      1.00      1.00        11
+Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)       1.00      1.00      1.00         3
+                                                Pub DeLeon       0.00      0.00      0.00         0
+                                      Raíssa Pereira Paulo       0.00      0.00      0.00         1
+                                                     Steam       0.00      0.00      0.00         1
+
+                                                  accuracy                           0.83        23
+                                                 macro avg       0.48      0.55      0.49        23
+                                              weighted avg       0.79      0.83      0.80        23

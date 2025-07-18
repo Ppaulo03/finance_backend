@@ -1,0 +1,134 @@
+
+=== Resultado para 'Tipo' ===
+               precision    recall  f1-score   support
+
+        Gasto       1.00      1.00      1.00        64
+  Recebimento       0.88      1.00      0.93         7
+Transferência       1.00      0.94      0.97        17
+
+     accuracy                           0.99        88
+    macro avg       0.96      0.98      0.97        88
+ weighted avg       0.99      0.99      0.99        88
+
+=== Resultado para 'Categoria' ===
+                      precision    recall  f1-score   support
+
+         Alimentação       0.61      0.88      0.72        16
+             Compras       0.00      0.00      0.00         3
+     Contas Próprias       1.00      0.94      0.97        17
+       Contribuições       1.00      0.67      0.80         3
+            Educação       0.75      1.00      0.86         3
+      Entretenimento       0.00      0.00      0.00         1
+      Entreterimento       0.58      0.64      0.61        11
+            Impostos       1.00      1.00      1.00         1
+             Moradia       1.00      1.00      1.00         1
+              Outros       0.50      0.33      0.40         3
+           Presentes       1.00      0.33      0.50         3
+             Salário       0.33      1.00      0.50         1
+     Saude/Bem-Estar       0.50      0.50      0.50         2
+Serviços Financeiros       1.00      1.00      1.00         1
+            Trabalho       0.00      0.00      0.00         1
+          Transporte       1.00      0.95      0.98        21
+
+            accuracy                           0.78        88
+           macro avg       0.64      0.64      0.61        88
+        weighted avg       0.78      0.78      0.77        88
+
+=== Resultado para 'Subcategoria' ===
+                             precision    recall  f1-score   support
+
+                 Acessórios       0.00      0.00      0.00         1
+             Ajuda de custo       0.67      0.67      0.67         3
+   Aporte para Investimento       1.00      0.86      0.92         7
+    Assinaturas e Streaming       0.00      0.00      0.00         1
+                       Açai       0.00      0.00      0.00         1
+                 Boardgames       0.00      0.00      0.00         1
+           Cashback e Bônus       0.00      0.00      0.00         1
+         Chocolates e Doces       0.00      0.00      0.00         1
+                  Churrasco       0.00      0.00      0.00         1
+           Confraternização       0.00      0.00      0.00         1
+          Custo de Trabalho       0.00      0.00      0.00         1
+                Eletrônicos       0.00      0.00      0.00         2
+                    Esporte       0.20      1.00      0.33         1
+                  Faculdade       1.00      1.00      1.00         2
+                  Fast Food       0.50      1.00      0.67         1
+Fatura do Cartão de Crédito       0.00      0.00      0.00         0
+                      Jogos       0.50      1.00      0.67         2
+                     Lanche       0.67      0.40      0.50         5
+                        MEI       0.50      1.00      0.67         1
+                Medicamento       0.00      0.00      0.00         1
+       Movimentação Interna       0.91      1.00      0.95        10
+                     Outros       0.50      0.33      0.40         3
+                     Pastel       0.00      0.00      0.00         1
+       Presente em Dinheiro       1.00      1.00      1.00         1
+                    Projeto       1.00      1.00      1.00         1
+                        Pub       1.00      0.33      0.50         3
+                Restaurante       0.00      0.00      0.00         1
+          Roupas e Calçados       0.00      0.00      0.00         1
+                    Salgado       0.60      1.00      0.75         6
+            Salário Regular       1.00      1.00      1.00         1
+               Sanduicheria       0.25      1.00      0.40         1
+                       Show       1.00      1.00      1.00         3
+                 Sorveteria       0.00      0.00      0.00         0
+             Telefone Móvel       1.00      1.00      1.00         1
+         Transporte Público       1.00      1.00      1.00         7
+         Transporte por App       1.00      0.93      0.96        14
+
+                   accuracy                           0.72        88
+                  macro avg       0.42      0.49      0.43        88
+               weighted avg       0.70      0.72      0.69        88
+
+=== Resultado para 'Nome' ===
+                                                            precision    recall  f1-score   support
+
+                                              "Come em Pé"       0.00      0.00      0.00         1
+                                            ACEROLA E ACAI       0.00      0.00      0.00         1
+                                                Americanas       0.00      0.00      0.00         1
+                            Ataildes Maria Vieira Nogueira       1.00      1.00      1.00         1
+                                              BANCO XP S/A       0.00      0.00      0.00         1
+                                              Banco Xp S,A       0.00      0.00      0.00         1
+                                               Burger King       1.00      1.00      1.00         1
+                                           Cred Facil Ltda       1.00      1.00      1.00         1
+                                               Crunchyroll       0.00      0.00      0.00         1
+                                             Distribuidora       0.00      0.00      0.00         0
+                                                Drogamarys       0.00      0.00      0.00         1
+                                                     Feira       0.00      0.00      0.00         1
+                                                Flamboyant       0.00      0.00      0.00         1
+                                               Good Burger       0.00      0.00      0.00         1
+                               Guilherme de Sousa Medeiros       0.00      0.00      0.00         0
+                                                Ibirapuera       0.00      0.00      0.00         1
+                                  Isabella Tavares de Lima       0.00      0.00      0.00         1
+                           Josana Barcelar Batista Andrade       1.00      1.00      1.00         1
+                                                     Kabum       0.00      0.00      0.00         0
+                                                Kid Abelha       0.00      0.00      0.00         0
+                                         Lanchonete Fatesg       0.86      0.86      0.86         7
+                                  Lanchonete Universitária       0.00      0.00      0.00         1
+                                        Lojinha de Esquina       0.00      0.00      0.00         1
+                                        Luana Alves Mendes       0.00      0.00      0.00         1
+                                                    Ludris       0.00      0.00      0.00         1
+                                                Manziarena       0.25      1.00      0.40         1
+                                                      Meta       0.00      0.00      0.00         1
+                                                  Milkymoo       0.00      0.00      0.00         0
+                                     Ministerio da Fazenda       1.00      1.00      1.00         1
+                               Paulo Vitor Carvalho Vieira       1.00      1.00      1.00         2
+                    Pedro Paulo Carvalho Vieira (si mesmo)       0.91      1.00      0.95        10
+Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)       0.60      1.00      0.75         3
+                                                    Pichau       0.00      0.00      0.00         1
+                                                Pub DeLeon       0.33      0.33      0.33         3
+                                           Receita Federal       0.00      0.00      0.00         0
+                                                  Riotgame       0.00      0.00      0.00         0
+                                Rodrigo Santana Esperidião       1.00      1.00      1.00         3
+                                Samuel Carvalho de Almeida       1.00      1.00      1.00         1
+                                  Saulo Oliveira Guimaraes       0.00      0.00      0.00         1
+                                                     Senai       1.00      1.00      1.00         2
+                                                   Sitpass       1.00      1.00      1.00         7
+                                                     Steam       0.67      1.00      0.80         2
+                                                    Subway       1.00      1.00      1.00         2
+                                              Ticketmaster       1.00      1.00      1.00         3
+                                                       Tim       1.00      1.00      1.00         1
+                                                      Uber       1.00      0.93      0.96        14
+                                 para a conta investimento       1.00      0.33      0.50         3
+
+                                                  accuracy                           0.72        88
+                                                 macro avg       0.40      0.41      0.39        88
+                                              weighted avg       0.71      0.72      0.70        88

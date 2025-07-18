@@ -1,0 +1,121 @@
+
+=== Resultado para 'Tipo' ===
+               precision    recall  f1-score   support
+
+        Gasto       1.00      1.00      1.00        64
+  Recebimento       0.89      1.00      0.94         8
+Transferência       1.00      0.94      0.97        18
+
+     accuracy                           0.99        90
+    macro avg       0.96      0.98      0.97        90
+ weighted avg       0.99      0.99      0.99        90
+
+=== Resultado para 'Categoria' ===
+                      precision    recall  f1-score   support
+
+         Alimentação       0.70      1.00      0.82        16
+             Compras       0.00      0.00      0.00         2
+     Contas Próprias       1.00      0.94      0.97        17
+       Contribuições       0.75      0.75      0.75         4
+            Educação       1.00      1.00      1.00         4
+      Entreterimento       0.83      0.62      0.71         8
+            Impostos       1.00      1.00      1.00         1
+             Moradia       1.00      1.00      1.00         1
+              Outros       1.00      0.33      0.50         3
+           Presentes       1.00      1.00      1.00         1
+             Salário       0.50      1.00      0.67         1
+     Saude/Bem-Estar       1.00      0.86      0.92         7
+Serviços Financeiros       0.67      1.00      0.80         2
+            Trabalho       0.00      0.00      0.00         1
+          Transporte       1.00      1.00      1.00        22
+
+            accuracy                           0.88        90
+           macro avg       0.76      0.77      0.74        90
+        weighted avg       0.87      0.88      0.86        90
+
+=== Resultado para 'Subcategoria' ===
+                             precision    recall  f1-score   support
+
+             Ajuda de custo       0.75      0.75      0.75         4
+   Aporte para Investimento       1.00      0.83      0.91         6
+                       Açai       0.00      0.00      0.00         2
+                 Boardgames       0.00      0.00      0.00         1
+           Cashback e Bônus       0.00      0.00      0.00         1
+           Confraternização       0.00      0.00      0.00         1
+          Custo de Trabalho       1.00      1.00      1.00         1
+                Eletrônicos       0.00      0.00      0.00         2
+                    Esporte       0.71      1.00      0.83         5
+                  Faculdade       1.00      1.00      1.00         3
+                  Fast Food       1.00      1.00      1.00         1
+Fatura do Cartão de Crédito       0.33      1.00      0.50         1
+                      Jogos       0.75      1.00      0.86         3
+                     Lanche       0.60      1.00      0.75         3
+                        MEI       0.50      1.00      0.67         1
+                Medicamento       0.50      0.50      0.50         2
+       Movimentação Interna       0.92      1.00      0.96        11
+                     Outros       1.00      0.33      0.50         3
+       Presente em Dinheiro       1.00      1.00      1.00         1
+                    Projeto       1.00      1.00      1.00         1
+                        Pub       0.00      0.00      0.00         2
+                Restaurante       1.00      0.50      0.67         2
+                    Salgado       0.88      1.00      0.93         7
+            Salário Regular       1.00      1.00      1.00         1
+               Sanduicheria       0.00      0.00      0.00         1
+                       Show       1.00      1.00      1.00         1
+             Telefone Móvel       1.00      1.00      1.00         1
+         Transporte Público       1.00      1.00      1.00        13
+         Transporte por App       0.82      1.00      0.90         9
+
+                   accuracy                           0.82        90
+                  macro avg       0.65      0.69      0.65        90
+               weighted avg       0.78      0.82      0.78        90
+
+=== Resultado para 'Nome' ===
+                                                            precision    recall  f1-score   support
+
+                                              "Come em Pé"       0.00      0.00      0.00         1
+                                            ACEROLA E ACAI       0.00      0.00      0.00         1
+                            Ataildes Maria Vieira Nogueira       1.00      1.00      1.00         1
+                                                       Aws       1.00      1.00      1.00         1
+                                              BANCO XP S/A       0.33      0.50      0.40         2
+                                              Banco Xp S,A       0.00      0.00      0.00         1
+                                               Burger King       0.50      1.00      0.67         1
+                                           Cred Facil Ltda       1.00      1.00      1.00         1
+                                             Distribuidora       0.00      0.00      0.00         0
+                                                Drogamarys       1.00      0.50      0.67         2
+                                               Good Burger       0.00      0.00      0.00         1
+                                  Isabella Tavares de Lima       0.00      0.00      0.00         1
+                                                     Kabum       0.00      0.00      0.00         0
+                                         Lanchonete Fatesg       1.00      1.00      1.00         8
+                                        Lojinha de Esquina       0.00      0.00      0.00         1
+                                        Luana Alves Mendes       0.00      0.00      0.00         1
+                                                    Ludris       0.00      0.00      0.00         1
+                        Luísa Francielle Oliveira Fagundes       0.00      0.00      0.00         0
+                                                Manziarena       0.71      1.00      0.83         5
+                                                    Monkey       0.00      0.00      0.00         0
+                                        NU SHAKE ACAITERIA       0.00      0.00      0.00         1
+                                           Okto Tech Ltda,       0.00      0.00      0.00         0
+                               Paulo Vitor Carvalho Vieira       1.00      1.00      1.00         1
+                    Pedro Paulo Carvalho Vieira (si mesmo)       1.00      1.00      1.00        11
+Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)       0.60      1.00      0.75         3
+                                                    Pichau       0.00      0.00      0.00         1
+                                                   Poppy's       1.00      1.00      1.00         1
+                                                Pub DeLeon       0.00      0.00      0.00         2
+                                           Receita Federal       1.00      1.00      1.00         1
+                                                  Riotgame       0.50      1.00      0.67         1
+                                Rodrigo Santana Esperidião       1.00      1.00      1.00         3
+                                Samuel Carvalho de Almeida       0.67      1.00      0.80         2
+                                  Saulo Oliveira Guimaraes       0.00      0.00      0.00         1
+                                                     Senai       1.00      1.00      1.00         3
+                                                   Sitpass       1.00      1.00      1.00        13
+                                                     Steam       0.50      0.50      0.50         2
+                                                    Subway       1.00      1.00      1.00         2
+                                              Ticketmaster       1.00      1.00      1.00         1
+                                                       Tim       1.00      1.00      1.00         1
+                                                      Uber       0.90      1.00      0.95         9
+                                           Vinicius Borges       0.00      0.00      0.00         0
+                                 para a conta investimento       0.00      0.00      0.00         2
+
+                                                  accuracy                           0.80        90
+                                                 macro avg       0.47      0.51      0.48        90
+                                              weighted avg       0.75      0.80      0.77        90

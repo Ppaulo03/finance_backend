@@ -20,9 +20,11 @@ for index, row in df.iterrows():
     entry = Account(
         nome=row["nome"],
         saldo_inicial=row["saldo_inicial"],
+        open_finance_id=row["open_finance_id"],
     )
     db.insert_account(entry)
 db.close()
+
 
 # import pandas as pd
 # import os
@@ -56,3 +58,12 @@ db.close()
 
 # df_extratos.to_csv("extratos.csv", index=False, encoding="utf-8-sig")
 # df_faturas.to_csv("faturas.csv", index=False, encoding="utf-8-sig")
+
+from services.pluggy.sync import sync
+
+sync()
+
+# from services.pluggy.pluggy_client import listar_transacoes
+
+# account_id = "2d0df1dd-e6d8-4f0a-8cc1-7aa62bdf6d25"
+# t = listar_transacoes(account_id)

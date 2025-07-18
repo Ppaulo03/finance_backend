@@ -34,6 +34,11 @@ class FinanceEntrySchema(BaseModel):
     notas: str = Field(
         default="", description="Additional notes for the entry", alias="Notas"
     )
+    need_tagging: bool | None = Field(default=False, description="Indicates if tagged")
+
+    @field_validator("need_tagging", mode="before")
+    def parse_data(cls, v):
+        return v if isinstance(v, bool) else False
 
     @field_validator("valor", mode="before")
     def parse_valor(cls, v):
@@ -52,4 +57,8 @@ class Account(BaseModel):
     open_finance_id: str = Field(
         default="",
         description="Open Finance identifier for the account",
+    )
+    is_credit: bool = Field(
+        default=False,
+        description="Indicates if the account is a credit account",
     )

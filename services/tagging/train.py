@@ -17,9 +17,11 @@ LOG_PATH = f"{base_path}/logs"
 
 def carregar_dados(path: str):
     df = pd.read_csv(path)
+    df = df[df["need_tagging"] != True]
     df["Data"] = pd.to_datetime(df["Data"])
     df["Hora"] = df["Data"].dt.hour
     df["DiaSemana"] = df["Data"].dt.dayofweek
+    df["Valor"] = df["Valor"].apply(lambda x: float(str(x).replace(",", ".")))
     df["Sinal"] = df["Valor"].apply(lambda x: 1 if x > 0 else 0)
     return df
 

@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 from schemas import FinanceEntrySchema, rotulos_schema
 from services.db import FinanceDB
-from services.utils import money
+
 from services.etl import extract_data
 from services.tagging import sugerir_rotulos
 

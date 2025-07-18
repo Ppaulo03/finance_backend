@@ -31,7 +31,8 @@ class FinanceDB(MySQLConnection):
                         subcategoria VARCHAR(100) NOT NULL,
                         nome VARCHAR(255) NOT NULL,
                         conta INT NOT NULL,
-                        notas TEXT
+                        notas TEXT,
+                        need_tagging BOOLEAN DEFAULT FALSE
                     )
                 """
         )
@@ -41,7 +42,9 @@ class FinanceDB(MySQLConnection):
             CREATE TABLE IF NOT EXISTS contas(
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL,
-                saldo_inicial FLOAT NOT NULL
+                saldo_inicial FLOAT NOT NULL,
+                open_finance_id VARCHAR(100) NOT NULL,
+                is_credit BOOLEAN DEFAULT FALSE
             )
             """
         )
