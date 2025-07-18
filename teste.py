@@ -1,28 +1,32 @@
 from services.db import FinanceDB
 from schemas import FinanceEntrySchema, Account
 import pandas as pd
+from tqdm import tqdm
 
 df = pd.read_csv("data/AllData.csv")
 
 db = FinanceDB()
-db.connect()
-db.drop_tables()
-db = FinanceDB()
-db.connect()
-for index, row in df.iterrows():
-    if pd.isna(row["Notas"]):
-        row["Notas"] = ""
-    entry = FinanceEntrySchema(**row)
-    db.insert_financa(entry)
+# db.reset_tables()
 
-df = pd.read_csv(r"data\accounts.csv")
-for index, row in df.iterrows():
-    entry = Account(
-        nome=row["nome"],
-        saldo_inicial=row["saldo_inicial"],
-        open_finance_id=row["open_finance_id"],
-    )
-    db.insert_account(entry)
+# with tqdm(total=len(df)) as pbar:
+#     for index, row in df.iterrows():
+#         if pd.isna(row["Notas"]):
+#             row["Notas"] = ""
+#         entry = FinanceEntrySchema(**row)
+#         db.insert_financa(entry)
+#         pbar.update(1)
+
+# df = pd.read_csv(r"data\accounts.csv")
+# with tqdm(total=len(df)) as pbar:
+#     for index, row in df.iterrows():
+#         entry = Account(
+#             nome=row["nome"],
+#             saldo_inicial=row["saldo_inicial"],
+#             open_finance_id=row["open_finance_id"],
+#         )
+#         db.insert_account(entry)
+#         pbar.update(1)
+
 db.close()
 
 

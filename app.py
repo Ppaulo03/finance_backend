@@ -1,3 +1,4 @@
+from services.db import FinanceDB
 import streamlit as st
 from services.values_service import get_values
 from services.utils import money
@@ -6,6 +7,14 @@ import os
 if os.path.exists("style.css"):
     with open("style.css", "r") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
+    db = FinanceDB()
+    st.session_state.df_financas = db.get_financas()
+    st.session_state.df_accounts = db.get_accounts()
+
+df = st.session_state.df_financas.copy()
+accounts = st.session_state.df_accounts.copy()
 
 # Dados
 saldo_total, saldo_por_conta = get_values()
