@@ -96,3 +96,4 @@ def sync():
 
         df = sync_acc(acc["id"], acc["nome"], acc["open_finance_id"], finances)
         # db.add_df_entries(df)
+    db.close()

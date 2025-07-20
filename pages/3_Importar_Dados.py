@@ -12,6 +12,7 @@ if "df_financas" not in st.session_state or "df_accounts" not in st.session_stat
     db = FinanceDB()
     st.session_state.df_financas = db.get_financas()
     st.session_state.df_accounts = db.get_accounts()
+    db.close()
 
 df = st.session_state.df_financas.copy()
 accounts = st.session_state.df_accounts.copy()

@@ -1,35 +1,38 @@
 import streamlit as st
+import requests
 import pandas as pd
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 from services.utils import money
-from services.db import FinanceDB
-
+import os
 import locale
 
 locale.setlocale(locale.LC_TIME, "Portuguese_Brazil.1252")
 
 st.title("📄 Transações")
 
-# 🔹 Carregar dados
 
-if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
-    db = FinanceDB()
-    st.session_state.df_financas = db.get_financas()
-    st.session_state.df_accounts = db.get_accounts()
+url_base = os.getenv("LOCAL_URL", "http://127.0.0.1:3000")
+if "financas" not in st.session_state or "accounts" not in st.session_state:
+    response = requests.get(f"{url_base}/financas").json()
+    st.session_state.financas = response["financas"]
+    st.session_state.accounts = response["accounts"]
 
+financas = st.session_state.financas
+accounts = st.session_state.accounts
 
-df = st.session_state.df_financas.copy()
-accounts = st.session_state.df_accounts.copy()
-
-# 🔎 Filtros
 st.sidebar.header("Filtros")
 
-df["data"] = pd.to_datetime(df["data"])
-data_min = df["data"].min().replace(day=1)
-data_max = df["data"].max() + pd.offsets.MonthEnd(1) + pd.offsets.Day(1)
+datas = [datetime.fromisoformat(f["data"]) for f in financas]
+data_min = min(datas).replace(day=1)
+data_max = max(datas).replace(day=1) + relativedelta(months=1)
 
-todos_meses = pd.date_range(start=data_min, end=data_max, freq="MS")
-meses_formatados = todos_meses.strftime("%B %Y").tolist()
-meses_formatados = meses_formatados[::-1]
+meses = []
+atual = data_min
+while atual <= data_max:
+    meses.append(atual.strftime("%B %Y"))
+    atual += relativedelta(months=1)
+meses_formatados = meses[::-1]
 
 if "mes_index" not in st.session_state:
     st.session_state.mes_index = 0
@@ -68,47 +71,40 @@ mes_selecionado = st.sidebar.selectbox(
     args=(),
     key="mes_select",
 )
-periodo_selecionado = pd.to_datetime(mes_selecionado, format="%B %Y").to_period("M")
+periodo_selecionado = datetime.strptime(mes_selecionado, "%B %Y")
 
 
-# 🔹 Conta
-df["conta"] = df["conta"].map(
-    lambda x: (
-        "Desconhecida"
-        if accounts[accounts["id"] == x].empty
-        else accounts.loc[accounts["id"] == x, "nome"].values[0]
-    )
-)
-contas = df["conta"].dropna().unique().tolist()
+contas_dict = {c["id"]: c["nome"] for c in accounts}
+for f in financas:
+    nome_conta = contas_dict.get(f["conta"], "Desconhecida")
+    f["conta_nome"] = nome_conta
+
+contas = list(sorted(set(contas_dict.values())))
 conta = st.sidebar.multiselect("Conta", contas, default=contas)
+selected_ids = [id_ for id_, nome in contas_dict.items() if nome in conta]
 
-
-# 🔹 Tipo
-tipos = df["tipo"].dropna().unique().tolist()
+tipos = sorted({f["tipo"] for f in financas if f["tipo"]})
 tipo = st.sidebar.multiselect("Tipo", tipos, default=tipos)
 
-# 🔹 Busca por nome
 nome_busca = st.sidebar.text_input("Buscar por nome")
 
-# 🔽 Aplicar filtros
-df_filtrado = df[
-    (df["data"].dt.to_period("M") == periodo_selecionado) & (df["conta"].isin(conta))
-]
+data = {
+    "financas": financas,
+    "accounts": accounts,
+    "mes": mes_selecionado,
+    "contas": selected_ids,
+    "tipos": tipo,
+    "nome_busca": nome_busca,
+}
+response = requests.post(f"{url_base}/filter_financas", json=data).json()
+filtrado = response["filtered"]
 
-if nome_busca:
-    df_filtrado = df_filtrado[
-        df_filtrado["nome"].str.contains(nome_busca, case=False, na=False)
-    ]
-
-# Resumo em cards
-total_gastos = -df_filtrado[df_filtrado["tipo"] == "Gasto"]["valor"].sum()
-total_receitas = df_filtrado[df_filtrado["tipo"] == "Recebimento"]["valor"].sum()
+total_gastos = response["total_gastos"]
+total_receitas = response["total_receitas"]
 
 col1, col2 = st.columns(2)
 col1.metric("💸 Total de Gastos", money(total_gastos))
 col2.metric("💰 Total de Receitas", money(total_receitas))
-
-df_filtrado = df_filtrado[df_filtrado["tipo"].isin(tipo)]
 
 
 def style_valor(val, tipo):
@@ -120,9 +116,17 @@ def style_valor(val, tipo):
         return "color: #2ecc71; font-weight: bold"  # verde
 
 
+if not filtrado:
+    # empty dataframe
+    df_filtrado = pd.DataFrame(
+        columns=["data", "nome", "valor", "categoria", "subcategoria", "conta", "tipo"]
+    )
+else:
+    df_filtrado = pd.DataFrame(filtrado)
 df_style_base = df_filtrado[
     ["data", "nome", "valor", "categoria", "subcategoria", "conta", "tipo"]
 ].copy()
+df_style_base["data"] = pd.to_datetime(df_style_base["data"])
 df_style_base = df_style_base.sort_values(by="data", ascending=False)
 
 # Remove 'tipo' da visualização
