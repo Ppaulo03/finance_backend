@@ -1,21 +1,22 @@
 import streamlit as st
 import pandas as pd
+import requests
 from datetime import datetime
 from schemas import FinanceEntrySchema, rotulos_schema
-from services.db import FinanceDB
 
 from services.etl import extract_data
 from services.tagging import sugerir_rotulos
+import os
 
 
-if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
-    db = FinanceDB()
-    st.session_state.df_financas = db.get_financas()
-    st.session_state.df_accounts = db.get_accounts()
-    db.close()
+url_base = os.getenv("LOCAL_URL", "http://127.0.0.1:3000")
+if "financas" not in st.session_state or "accounts" not in st.session_state:
+    response = requests.get(f"{url_base}/financas").json()
+    st.session_state.financas = response["financas"]
+    st.session_state.accounts = response["accounts"]
 
-df = st.session_state.df_financas.copy()
-accounts = st.session_state.df_accounts.copy()
+financas = st.session_state.financas
+accounts = st.session_state.accounts
 
 
 def reset_categoria_subcategoria():
@@ -52,12 +53,9 @@ if not st.session_state.adicionando_csv:
         type=["csv"],
         key=st.session_state.upload_key,
     ):
-        df = extract_data(uploaded_file)
-        st.session_state.adicionando_csv = True
-        st.session_state.setdefault("processados", [])
-        st.session_state.setdefault("atual", 0)
-        st.session_state.df_csv = df
-        st.rerun()
+        files = {"file": (uploaded_file.name, uploaded_file.getvalue())}
+        response = requests.post(f"{url_base}/tag_financas", files=files)
+
 
 if st.session_state.adicionando_csv:
     df = st.session_state.df_csv
@@ -202,15 +200,15 @@ if st.session_state.adicionando_csv:
         st.success("Todas as transações foram processadas.")
 
         if st.button("Enviar para o banco de dados"):
-            db.add_df_entries(
-                pd.DataFrame(
-                    [
-                        e.model_dump(by_alias=True)
-                        for e in st.session_state["processados"]
-                    ]
-                )
-            )
-            st.session_state.upload_key = f"upload_{datetime.now().timestamp()}"
+            # db.add_df_entries(
+            #     pd.DataFrame(
+            #         [
+            #             e.model_dump(by_alias=True)
+            #             for e in st.session_state["processados"]
+            #         ]
+            #     )
+            # )
+            # st.session_state.upload_key = f"upload_{datetime.now().timestamp()}"
             st.session_state.adicionando_csv = False
             st.session_state["atual"] = 0
             st.rerun()
