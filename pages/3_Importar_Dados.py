@@ -54,27 +54,35 @@ if not st.session_state.adicionando_csv:
         key=st.session_state.upload_key,
     ):
         files = {"file": (uploaded_file.name, uploaded_file.getvalue())}
-        response = requests.post(f"{url_base}/tag_financas", files=files)
-
+        st.session_state.adicionando_csv = True
+        response = requests.post(f"{url_base}/tag_financas", files=files).json()
+        st.session_state.tagged_csv = response["tagged"]
+        st.session_state["atual"] = 0
+        st.session_state["processados"] = []
 
 if st.session_state.adicionando_csv:
-    df = st.session_state.df_csv
+    csv = st.session_state.tagged_csv
     idx = st.session_state["atual"]
-    if idx < len(df):
-        row = df.iloc[st.session_state["atual"]]
-
-        st.markdown(f"### Transação {st.session_state['atual'] + 1}/{len(df)}")
+    if idx < len(csv):
+        row = csv[idx]
+        df = pd.DataFrame([row])
+        st.markdown(f"### Transação {st.session_state['atual'] + 1}/{len(csv)}")
         st.write(
             df.loc[
                 [st.session_state["atual"]],
-                ["Data", "Valor", "Destino / Origem", "Descricao"],
+                ["data", "valor", "destino_origem", "descricao"],
             ]
         )
 
         if len(st.session_state["processados"]) <= idx:
-            rotulos = sugerir_rotulos(
-                row["Data"], row["Valor"], row["Destino / Origem"], row["Descricao"]
-            )
+            rotulos = {
+                "Tipo": row["tipo"],
+                "Categoria": row["categoria"],
+                "Subcategoria": row["subcategoria"],
+                "Nome": row["nome"],
+                "Notas": row["notas"],
+            }
+
         else:
             rotulos = {
                 "Tipo": st.session_state["processados"][idx].tipo,
@@ -90,9 +98,10 @@ if st.session_state.adicionando_csv:
         nome_suggestion = rotulos.get("Nome", "")
         notas_sugestion = rotulos.get("Notas", "")
 
+        accounts_names = [acc["nome"] for acc in accounts]
         conta = st.selectbox(
             "Conta",
-            accounts["nome"].tolist(),
+            accounts_names,
             index=0,
             key="conta_select",
         )
