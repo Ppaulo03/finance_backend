@@ -10,9 +10,15 @@ locale.setlocale(locale.LC_TIME, "Portuguese_Brazil.1252")
 st.title("📄 Transações")
 
 # 🔹 Carregar dados
-db = FinanceDB()
-df = db.get_financas()
-accounts = db.get_accounts()
+
+if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
+    db = FinanceDB()
+    st.session_state.df_financas = db.get_financas()
+    st.session_state.df_accounts = db.get_accounts()
+
+
+df = st.session_state.df_financas.copy()
+accounts = st.session_state.df_accounts.copy()
 
 # 🔎 Filtros
 st.sidebar.header("Filtros")

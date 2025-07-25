@@ -1,12 +1,18 @@
 from .db_connection import MySQLConnection
 from schemas import FinanceEntrySchema, Account
 from services.tagging import train_models
-from loguru import logger
+
 from time import time
+from os import getenv
+from dotenv import load_dotenv
+from loguru import logger
 import pandas as pd
 
-USER = "root"
-PASSWORD = "0123"
+load_dotenv(override=True)
+HOST = getenv("MYSQL_HOST")
+PORT = getenv("MYSQL_PORT")
+USER = getenv("MYSQL_USER")
+PASSWORD = getenv("MYSQL_PASSWORD")
 DATABASE = "financeiro"
 
 backup_folder = "data/backup"
@@ -14,27 +20,34 @@ db_file = "data/AllData.csv"
 
 
 class FinanceDB(MySQLConnection):
-    def __init__(self, user=USER, password=PASSWORD, database=DATABASE):
-        super().__init__(user=user, password=password, database=database)
+    def __init__(
+        self, user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE
+    ):
+        super().__init__(
+            user=user, password=password, host=host, port=port, database=database
+        )
 
         self.connect(create_db_if_missing=True)
+        self.create_tables()
+
+    def create_tables(self):
         self.execute(
             """
-                    CREATE TABLE IF NOT EXISTS financas (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        data DATETIME NOT NULL,
-                        valor FLOAT NOT NULL,
-                        destino_origem VARCHAR(255) NOT NULL,
-                        descricao TEXT NOT NULL,
-                        tipo VARCHAR(50) NOT NULL,
-                        categoria VARCHAR(100) NOT NULL,
-                        subcategoria VARCHAR(100) NOT NULL,
-                        nome VARCHAR(255) NOT NULL,
-                        conta INT NOT NULL,
-                        notas TEXT,
-                        need_tagging BOOLEAN DEFAULT FALSE
-                    )
-                """
+            CREATE TABLE IF NOT EXISTS financas (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                data DATETIME NOT NULL,
+                valor FLOAT NOT NULL,
+                destino_origem VARCHAR(255) NOT NULL,
+                descricao TEXT NOT NULL,
+                tipo VARCHAR(50) NOT NULL,
+                categoria VARCHAR(100) NOT NULL,
+                subcategoria VARCHAR(100) NOT NULL,
+                nome VARCHAR(255) NOT NULL,
+                conta INT NOT NULL,
+                notas TEXT,
+                need_tagging BOOLEAN DEFAULT FALSE
+            )
+        """
         )
 
         self.execute(
@@ -49,22 +62,19 @@ class FinanceDB(MySQLConnection):
             """
         )
 
-        self.close()
-
     def drop_tables(self):
-        self.connect()
         self.execute("DROP TABLE IF EXISTS financas")
         self.execute("DROP TABLE IF EXISTS contas")
-        self.close()
-        logger.info("Tabelas removidas com sucesso.")
+
+    def reset_tables(self):
+        self.drop_tables()
+        self.create_tables()
 
     def insert_financa(self, entry: "FinanceEntrySchema"):
         self.insert(entry, "financas")
-        logger.info("Entrada financeira inserida com sucesso.")
 
     def insert_account(self, account: "Account"):
         self.insert(account, "contas")
-        logger.info("Conta inserida com sucesso.")
 
     def get_financas(self) -> pd.DataFrame:
         return self.get_table("financas")
@@ -74,12 +84,10 @@ class FinanceDB(MySQLConnection):
 
     def add_df_entries(self, entries_df: pd.DataFrame):
         entries_df.drop(columns=["id"], inplace=True, errors="ignore")
-        self.connect()
 
         for _, row in entries_df.iterrows():
             entry = FinanceEntrySchema(**row)
             self.insert_financa(entry)
-        self.close()
 
         entries_df.to_csv(
             f"{backup_folder}/entries/entry_{int(time())}.csv",

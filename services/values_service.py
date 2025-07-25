@@ -1,4 +1,3 @@
-from services.db import FinanceDB
 import pandas as pd
 
 
@@ -17,11 +16,7 @@ def get_value_per_account(financas: pd.DataFrame, accounts: pd.DataFrame) -> dic
     return values
 
 
-def get_values() -> tuple[float, dict]:
-    db = FinanceDB()
-    accounts = db.get_accounts()
-    financas = db.get_financas()
-
+def get_values(financas, accounts) -> tuple[float, dict]:
     """Calcula o valor total e por conta."""
     valor_total = float(financas["valor"].sum() + accounts["saldo_inicial"].sum())
     valor_por_conta = get_value_per_account(financas, accounts)

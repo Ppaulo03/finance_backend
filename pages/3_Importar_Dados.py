@@ -8,6 +8,15 @@ from services.etl import extract_data
 from services.tagging import sugerir_rotulos
 
 
+if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
+    db = FinanceDB()
+    st.session_state.df_financas = db.get_financas()
+    st.session_state.df_accounts = db.get_accounts()
+
+df = st.session_state.df_financas.copy()
+accounts = st.session_state.df_accounts.copy()
+
+
 def reset_categoria_subcategoria():
     if "atual" not in st.session_state:
         return
@@ -31,8 +40,7 @@ if "upload_key" not in st.session_state:
     st.session_state.upload_key = f"upload_{datetime.now().timestamp()}"
 
 st.set_page_config(layout="wide")
-db = FinanceDB()
-accounts = db.get_accounts()
+
 
 tipos = list(rotulos_schema.keys())
 st.title("📘 Controle Financeiro")

@@ -8,8 +8,14 @@ st.set_page_config(layout="wide")
 st.title("📈 Análises Financeiras")
 
 # 📥 Dados
-db = FinanceDB()
-df = db.get_financas()
+if "df_financas" not in st.session_state or "df_accounts" not in st.session_state:
+    db = FinanceDB()
+    st.session_state.df_financas = db.get_financas()
+    st.session_state.df_accounts = db.get_accounts()
+
+df = st.session_state.df_financas.copy()
+accounts = st.session_state.df_accounts.copy()
+
 df["data"] = pd.to_datetime(df["data"])
 
 if df.empty:
