@@ -1,25 +1,40 @@
-import MySQLdb
-from pydantic import BaseModel
-import pandas as pd
+import pymysql
 from typing import Optional, List, Dict, Any
+from pydantic import BaseModel, field_validator
 from loguru import logger
 
 
+class MySQLConfig(BaseModel):
+    host: str
+    port: int
+    password: str
+    user: str
+    database: Optional[str] = None
+
+    @field_validator("port")
+    def validate_host(cls, value: Any) -> int:
+        return int(value)
+
+
 class MySQLConnection:
-    def __init__(self, user, password, host="localhost", port=3306, database=None):
-        self.config = {
-            "host": host,
-            "port": int(port),
-            "user": user,
-            "passwd": password,
-        }
+    def __init__(
+        self,
+        user_id: str,
+        user: str,
+        password: str,
+        host: str = "localhost",
+        port: int = 3306,
+        database: Optional[str] = None,
+    ):
+        self.config = MySQLConfig(
+            host=host, port=port, user=user, password=password, database=database
+        )
+        self.user_id = user_id
         self.database = database
-        self.conn = None
+        self.conn: Optional[pymysql.Connection] = None
 
     def connect(self, create_db_if_missing=False):
-
-        self.conn = MySQLdb.connect(**self.config)
-
+        self.conn = pymysql.connect(**self.config.model_dump())
         with self.conn.cursor() as cursor:
             if create_db_if_missing and self.database:
                 cursor.execute(f"CREATE DATABASE IF NOT EXISTS {self.database}")
@@ -54,29 +69,31 @@ class MySQLConnection:
         campos = [field for field in entry.model_fields_set if field != "id"]
         valores = [getattr(entry, campo) for campo in campos]
 
+        campos.append("user_id")
+        valores.append(f"{self.user_id}")
         placeholders = ", ".join(["%s"] * len(campos))
         colunas = ", ".join(campos)
 
         sql = f"INSERT INTO {table} ({colunas}) VALUES ({placeholders})"
         self.execute(sql, valores)
 
-    def get_table(self, table: str) -> pd.DataFrame:
-        sql = f"SELECT * FROM {table}"
+    def get_table(self, table: str) -> list[dict]:
+        sql = f"SELECT * FROM {table} WHERE user_id='{self.user_id}'"
         results = self.fetchall(sql)
-        df = pd.DataFrame(results)
-
-        for col in df.select_dtypes(include=["object"]).columns:
-            df[col] = df[col].str.strip() if df[col].dtype == "object" else df[col]
-
-        if df.empty:
+        if not results:
             logger.info(f"Nenhuma entrada encontrada na tabela {table}.")
-            return pd.DataFrame()
+            return []
 
-        return df
+        cleaned_results = []
+        for row in results:
+            cleaned_row = {
+                key: value.strip() if isinstance(value, str) else value
+                for key, value in row.items()
+            }
+            cleaned_results.append(cleaned_row)
+        return cleaned_results
 
     def close(self):
-
         if self.conn:
             self.conn.close()
-
         self.conn = None
