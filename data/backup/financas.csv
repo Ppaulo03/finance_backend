@@ -41,7 +41,7 @@
 40,2024-07-17T18:08:00,0.01,"Banco Xp S,A","Campanha Pix XP recebido de Banco Xp S,A",Recebimento,Serviços Financeiros,Cashback e Bônus,"Banco Xp S,A",1,"Campanha Pix XP recebido de Banco Xp S,A",False
 41,2024-07-01T07:00:00,-500.0,para conta investimento,Transferência enviada para conta investimento,Transferência,Contas Próprias,Aporte para Investimento,"Pedro Paulo Carvalho Vieira (si mesmo, conta investimento)",1,Transferência enviada para conta investimento,False
 42,2024-07-01T06:54:00,500.0,Pedro Paulo Carvalho Vieira,Pix recebido de Pedro Paulo Carvalho Vieira,Transferência,Contas Próprias,Movimentação Interna,Pedro Paulo Carvalho Vieira (si mesmo),1,Pix recebido de Pedro Paulo Carvalho Vieira,False
-43,2025-07-05T11:55:00,-182.47,Nuvei do Brasil Instituicao de Pagamento Ltda.,Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda.,Gasto,Entretenimento,Jogos,Steam,1,"Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda,",False
+43,2025-07-05T11:55:00,-182.47,"Nuvei do Brasil Instituicao de Pagamento Ltda.","Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda.",Gasto,Entretenimento,Jogos,Steam,1,"Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda,",False
 44,2025-07-03T13:30:00,510.0,Paulo Vitor Carvalho Vieira,Pix recebido de Paulo Vitor Carvalho Vieira,Recebimento,Outros,Outros,Paulo Vitor Carvalho Vieira,1,Pix recebido de Paulo Vitor Carvalho Vieira,False
 45,2024-12-26T08:28:00,-1289.17,BANCO XP S/A,Pagamento para BANCO XP S/A,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,BANCO XP S/A,1,Pagamento para BANCO XP S/A,False
 46,2024-12-23T12:43:00,-140.8,PANELA MAGICA GOIANIA BR,PANELA MAGICA GOIANIA BR,Gasto,Alimentação,Restaurante,Panela Mágica,1,PANELA MAGICA GOIANIA BR,False
@@ -143,12 +143,12 @@
 142,2025-06-26T18:25:00,20.25,Samuel Carvalho de Almeida,Pix recebido de Samuel Carvalho de Almeida,Recebimento,Contribuições,Ajuda de custo,Samuel Carvalho de Almeida,1,Pix recebido de Samuel Carvalho de Almeida,False
 143,2025-06-26T18:18:00,-148.37,Pagseguro Tecnologia Ltda,Pix enviado para Pagseguro Tecnologia Ltda,Gasto,Entretenimento,Jogos,Steam,1,Pix enviado para Pagseguro Tecnologia Ltda,False
 144,2025-06-22T21:39:00,-19.0,Rodrigo Santana Esperidião,Pix enviado para Rodrigo Santana Esperidião,Gasto,Educação,Projeto,Rodrigo Santana Esperidião,1,Pix enviado para Rodrigo Santana Esperidião,False
-145,2025-06-21T22:05:00,-23.99,Okto Tech Ltda.,Pix enviado para Okto Tech Ltda.,Gasto,Entretenimento,Jogos,"Okto Tech Ltda,",1,"Pix enviado para Okto Tech Ltda,",False
-146,2025-06-19T20:40:00,-20.49,Nuvei do Brasil Instituicao de Pagamento Ltda.,Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda.,Gasto,Entretenimento,Jogos,Steam,1,"Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda,",False
+145,2025-06-21T22:05:00,-23.99,"Okto Tech Ltda.","Pix enviado para Okto Tech Ltda.",Gasto,Entretenimento,Jogos,"Okto Tech Ltda,",1,"Pix enviado para Okto Tech Ltda,",False
+146,2025-06-19T20:40:00,-20.49,"Nuvei do Brasil Instituicao de Pagamento Ltda.","Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda.",Gasto,Entretenimento,Jogos,Steam,1,"Pix enviado para Nuvei do Brasil Instituicao de Pagamento Ltda,",False
 147,2025-06-18T13:00:00,-20.0,Luísa Francielle Oliveira Fagundes,Pix enviado para Luísa Francielle Oliveira Fagundes,Gasto,Entretenimento,Boardgames,Luísa Francielle Oliveira Fagundes,1,Pix enviado para Luísa Francielle Oliveira Fagundes,False
 148,2025-06-16T08:24:00,-536.11,BANCO XP S/A,Pagamento para BANCO XP S/A,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,BANCO XP S/A,1,Pagamento para BANCO XP S/A,False
 149,2025-06-16T07:41:00,-2000.0,para a conta investimento,Transferência enviada para a conta investimento,Transferência,Contas Próprias,Aporte para Investimento,para a conta investimento,1,Transferência enviada para a conta investimento,False
-150,2025-06-14T17:04:00,-37.12,Ingresso.Com Ltda,Pix enviado para Ingresso.Com Ltda,Gasto,Entretenimento,Cinema,Cinepolis Cerrado,1,"Pix enviado para Ingresso,Com Ltda",False
+150,2025-06-14T17:04:00,-37.12,"Ingresso.Com Ltda","Pix enviado para Ingresso.Com Ltda",Gasto,Entretenimento,Cinema,Cinepolis Cerrado,1,"Pix enviado para Ingresso,Com Ltda",False
 151,2025-06-14T12:24:00,-45.92,CAFE CARINO GOIANIA BR,CAFE CARINO GOIANIA BR,Gasto,Alimentação,Café,Café Carinõ,1,CAFE CARINO GOIANIA BR,False
 152,2025-06-10T11:16:00,15.0,Paulo Vitor Carvalho Vieira,Pix devolvido de Paulo Vitor Carvalho Vieira,Recebimento,Outros,Outros,Paulo Vitor Carvalho Vieira,1,Pix devolvido de Paulo Vitor Carvalho Vieira,False
 153,2025-06-10T10:37:00,-210.0,Paulo Vitor Carvalho Vieira,Pix enviado para Paulo Vitor Carvalho Vieira,Gasto,Presentes,Acessórios,Paulo Vitor Carvalho Vieira,1,Pix enviado para Paulo Vitor Carvalho Vieira,False
@@ -462,6 +462,3 @@
 461,2024-10-25T00:00:00,809.9,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,Pagamentos Validos Normais,2,Compra no Cartão de Crédito,False
 462,2024-12-26T00:00:00,1289.17,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,Pagamentos Validos Normais,2,Compra no Cartão de Crédito,False
 463,2025-02-17T00:00:00,1329.83,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,Serviços Financeiros,Fatura do Cartão de Crédito,Pagamentos Validos Normais,2,Compra no Cartão de Crédito,False
-464,2025-07-20T14:42:00,-23.99,Nuvei do Brasil Ltda.,Pix enviado para Nuvei do Brasil Ltda.,Gasto,,,,1,,True
-465,2025-07-15T00:00:00,1527.06,Pagamentos Validos Normais,Compra no Cartão de Crédito,Transferência,,,,2,,True
-466,2025-07-19T00:00:00,-14.97,UBER * PENDING,Compra no Cartão de Crédito,Gasto,,,,2,,True
